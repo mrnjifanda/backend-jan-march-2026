@@ -1,0 +1,37 @@
+HTTP METHODS:
+POST: Create / Send new data to server
+GET : Read / Get data from server
+PUT : Update
+DELETE: Delete data
+
+PATCH: Update partially
+OPTIONS: Ask permission
+
+HTTP CODES:
+- 2xx: SUCCESS
+- 3xx: REDIRECTION
+- 4xx: CLIENT ERROR
+- 5xx: SERVER ERROR
+
+MOSTLY USED:
+- 200 => OK : Standard success
+- 201 => Created: When you use POST to create a ressource on the server
+- 202 => Accepted:
+
+- 400 => Bad Request
+- 401 => Unauthorized
+- 404 => Resource not found (Not found) 
+
+
+// {
+//     id: "",
+//     name: "",
+//     phone: "",
+//     created_at: ""
+// }
+
+// TASKS: Create 05 endpoints
+// - List all users
+// - Get user by Id
+// - Update use by Id
+// - Delete user by Id
