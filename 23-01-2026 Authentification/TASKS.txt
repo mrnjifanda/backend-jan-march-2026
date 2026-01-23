@@ -1,0 +1,3 @@
+1. Use ZOD or JOI to create a data validation for register and login
+2. Test all enpoints with Insomnia, PostMan or Client thunder
+3. Do the search on Nodemailler.
