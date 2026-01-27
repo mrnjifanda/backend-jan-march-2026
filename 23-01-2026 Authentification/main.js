@@ -4,6 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const authController = require('./src/controllers/auth.controller');
+const { loginValidation, registerValidation } = require('./utils/validations/auth.validation');
 
 mongoose.connect(process.env.DATABASE_URL)
     .then(() => {
@@ -12,7 +13,7 @@ mongoose.connect(process.env.DATABASE_URL)
         app.use(express.json());
 
         app.post('/register', authController.register);
-        app.post('/login', authController.login);
+        app.post('/login', loginValidation, authController.login);
         app.get('/me', authController.me);
 
         app.listen(PORT, () => {
