@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const { required } = require('zod/mini');
 
 const userSchema = new Schema({
     first_name: {
@@ -27,6 +28,16 @@ const userSchema = new Schema({
         required: true,
         trim: true,
         min: [8, "Please enter valid name ( > 8)"],
+    },
+    otp_code: {
+        type: String,
+        required: false,
+        default: null,
+    },
+    verified: {
+        type: Date,
+        required: false,
+        default: null,
     },
 }, { timestamps: true });
 

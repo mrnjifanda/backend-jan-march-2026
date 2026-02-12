@@ -1,9 +1,9 @@
 const { z } = require('zod');
 
-const Validation =  (schema) => {
+const Validation =  (schema, data) => {
     try {
 
-        const valid_data = schema.parse(req.body);
+        const valid_data = schema.parse(data);
         return {
             isValid: true,
             data: valid_data

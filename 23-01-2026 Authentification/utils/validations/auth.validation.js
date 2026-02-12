@@ -8,7 +8,7 @@ const loginValidation = (req, res, next) => {
         password: z.string().min(8, "Invalid password")
     });
 
-    const valid = Validation(schema);
+    const valid = Validation(schema, req.body);
     if (valid.isValid) {
         req.body = valid.data;
         next();
@@ -24,13 +24,31 @@ const registerValidation = (req, res, next) => {
         last_name: z.string().min(3).max(50),
         email: z.email("Invalid email"),
         password: z.string().min(8, "Invalid password"),
-        confirm_password: z.object().min(8, "Invalid password")
+        confirm_password: z.string().min(8, "Invalid password")
     }).refine((data) => data.password === data.confirm_password, {
         message: "Passwords do not match",
         path: ["confirm_password"]
     });
 
-    const valid = Validation(schema);
+    const valid = Validation(schema, req.body);
+
+    const { confirm_password, ...body } = valid.data || {};
+    if (valid.isValid) {
+        req.body = body;
+        next();
+    } else {
+        return res.status(400).json(valid.error);
+    }
+};
+
+const otpValidation = (req, res, next) => {
+
+    const schema = z.object({
+        email: z.email("Invalid email"),
+        otp_code: z.string().min(6, "Invalid OTP code")
+    });
+
+    const valid = Validation(schema, req.body);
     if (valid.isValid) {
         req.body = valid.data;
         next();
@@ -39,4 +57,5 @@ const registerValidation = (req, res, next) => {
     }
 };
 
-module.exports = { loginValidation, registerValidation }
+
+module.exports = { loginValidation, registerValidation, otpValidation }

@@ -1,0 +1,89 @@
+{
+	"openapi": "3.0.0",
+	"info": {
+		"title": "Level 4 (JAN - MAR)",
+		"description": "",
+		"version": "1.0.0"
+	},
+	"servers": [],
+	"paths": {
+		"/login": {
+			"post": {
+				"tags": [
+					"Login"
+				],
+				"summary": "Login",
+				"description": "",
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "Successful response"
+					}
+				},
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"example": {
+									"email": "john.doe@example.com",
+									"password": "SecurePass123!"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/register": {
+			"post": {
+				"tags": [
+					"Register"
+				],
+				"summary": "Register",
+				"description": "",
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "Successful response"
+					}
+				},
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"example": {
+									"first_name": "John",
+									"last_name": "Doe",
+									"email": "john.doe@example.com",
+									"password": "SecurePass123!",
+									"confirm_password": "SecurePass123!"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/me": {
+			"get": {
+				"tags": [
+					"Me"
+				],
+				"summary": "Me",
+				"description": "",
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "Successful response"
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {},
+		"securitySchemes": {}
+	}
+}
